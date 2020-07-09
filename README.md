@@ -3,6 +3,4 @@
 
 
 ## installation
-```shell
-https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant
-```
+- https://greasyfork.org/zh-CN/scripts/406761-afeiship
