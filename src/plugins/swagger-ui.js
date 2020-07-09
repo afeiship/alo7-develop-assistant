@@ -1,9 +1,6 @@
 $(document).ready(() => {
   // styles:
   gmsdk.addStyle(`
-    body{
-      border:10px solid green;
-    }
     #resources .resource .heading > h2{
       font-size: 14px;
     }
