@@ -1,0 +1,28 @@
+{
+  "name": "@feizheng/alo7-develop-assistant",
+  "version": "1.0.0",
+  "description": "Develop assistant for alo7.",
+  "homepage": "https://github.com/afeiship",
+  "author": {
+    "name": "afeiship",
+    "email": "1290657123@qq.com"
+  },
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "main": "dist/index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@feizheng/next-nice-comments": "^1.1.0",
+    "rollup": "^2.20.0",
+    "rollup-plugin-banner": "^0.2.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-filesize": "^9.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^6.1.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
