@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         alo7-develop-assistant
 // @namespace    https://github.com/afeiship/alo7-develop-assistant
-// @version      1.0.0
+// @version      1.0.1
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
 // @match        *://*/*
