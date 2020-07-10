@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         alo7-develop-assistant
 // @namespace    https://github.com/afeiship/alo7-develop-assistant
-// @version      __VERSION__
+// @version      1.0.6
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
 // @match        *://*/*
 // @require  https://cdn.jsdelivr.net/npm/@feizheng/gm-sdk@1.0.22
-// @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@__VERSION__
+// @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@1.0.6
 // @grant GM_addStyle
 // @grant GM_deleteValue
 // @grant GM_listValues

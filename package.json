@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/alo7-develop-assistant",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Develop assistant for alo7.",
   "homepage": "https://github.com/afeiship",
   "author": {
@@ -14,12 +14,13 @@
   "license": "MIT",
   "devDependencies": {
     "@feizheng/next-nice-comments": "^1.1.0",
+    "@feizheng/next-rollup-banner": "^1.0.1",
     "rollup": "^2.20.0",
     "rollup-plugin-banner": "^0.2.1",
     "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^6.1.0"
   },
   "publishConfig": {

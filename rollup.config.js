@@ -3,24 +3,18 @@ import resolve from 'rollup-plugin-node-resolve';
 import filesize from 'rollup-plugin-filesize';
 import commonjs from 'rollup-plugin-commonjs';
 import banner from 'rollup-plugin-banner';
-import replace from 'rollup-plugin-replace';
+import copy from 'rollup-plugin-copy';
 import pkg from './package.json';
-
 import { terser } from "rollup-plugin-terser";
+import '@feizheng/next-rollup-banner';
 
-import '@feizheng/next-nice-comments';
-
-const comments = nx.niceComments(
-  [
-    'name: <%= pkg.name %>',
-    'description: <%= pkg.description %>',
-    'homepage: <%= pkg.homepage %>',
-    'version: <%= pkg.version %>',
-    'date: ' + new Date().toISOString(),
-    'license: <%= pkg.license %>'
-  ],
-  'pure'
-);
+const installCfg = {
+  targets: [{
+    src: 'src/install.js',
+    dest: 'dist',
+    transform: (contents) => contents.toString().replace(/__VERSION__/g, pkg.version)
+  }]
+};
 
 export default {
   input: 'src/main.js',
@@ -33,10 +27,8 @@ export default {
     resolve(),
     commonjs(),
     terser({ output: { comments: false } }),
-    banner(comments),
-    replace({
-      '__VERSION__': pkg.version
-    }),
+    banner(nx.rollupBanner()),
+    copy(installCfg),
     filesize()
   ]
 };
