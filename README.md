@@ -13,5 +13,5 @@
 2. 打开 `tampermokey` 的管理面板(Dashboard)
 3. 实用工具(tools)
 4. Install from URL:
-5. 用这个： https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/src/install.js
+5. 用这个： https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/dist/install.js
 
