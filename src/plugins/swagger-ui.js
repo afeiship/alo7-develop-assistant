@@ -1,3 +1,9 @@
+/**
+ * @description
+ * 1. 显示 API 序号
+ * 2. 增加 copy 可以方便复制 API 的 path
+ */
+
 $(document).ready(() => {
   // styles:
   gmsdk.addStyle(`
