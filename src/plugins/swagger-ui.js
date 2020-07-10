@@ -1,6 +1,12 @@
 $(document).ready(() => {
   // styles:
   gmsdk.addStyle(`
+    #resources .circle-index{
+      padding: 5px;
+      background: #547e03;
+      color: #fff;
+      border-radius: 50px;
+    }
     #resources .resource .heading > h2{
       font-size: 14px;
     }
@@ -20,7 +26,7 @@ $(document).ready(() => {
   setTimeout(() => {
     $('#resources .resource .heading > h2').each((index, item) => {
       var idx = '0' + (index + 1);
-      $(item).prepend(`<i>${idx.slice(-2)}</i>`);
+      $(item).prepend(`<i class="circle-index">${idx.slice(-2)}</i>`);
       $(item).append(`<button class="clipboard items">Copy</button>`);
     });
 
