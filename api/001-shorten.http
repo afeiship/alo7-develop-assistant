@@ -1,0 +1,14 @@
+### GET COOKIE
+GET https://bitly.com
+
+# 生点是得到这个:
+# Set-Cookie: _xsrf=94c554424fdc4d70b8a50745078539bf;
+
+
+### SET URL
+POST https://bitly.com/data/anon_shorten
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+x-xsrftoken: dba466feb49a4455a38c3c1037818212
+Cookie: _xsrf=dba466feb49a4455a38c3c1037818212
+
+url=https%3A%2F%2Fwww.mipengine.org%2F
