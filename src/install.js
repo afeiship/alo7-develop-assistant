@@ -7,6 +7,8 @@
 // @match        *://*/*
 // @require  https://cdn.jsdelivr.net/npm/@feizheng/gm-sdk@1.0.23
 // @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@__VERSION__
+// @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js
+// @resource JQ_TOAST https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css
 // @grant GM_addStyle
 // @grant GM_deleteValue
 // @grant GM_listValues

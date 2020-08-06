@@ -1,12 +1,14 @@
 // ==UserScript==
 // @name         alo7-develop-assistant
 // @namespace    https://github.com/afeiship/alo7-develop-assistant
-// @version      1.0.7
+// @version      1.0.8
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
 // @match        *://*/*
 // @require  https://cdn.jsdelivr.net/npm/@feizheng/gm-sdk@1.0.23
-// @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@1.0.7
+// @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@1.0.8
+// @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js
+// @resource JQ_TOAST https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css
 // @grant GM_addStyle
 // @grant GM_deleteValue
 // @grant GM_listValues
