@@ -5,15 +5,14 @@
 
   var App = nx.declare({
     methods: {
-      start(inKey) {
+      start() {
         if (!document.URL.includes('hr.saybot.net')) return false;
-
+        console.log('☘️ 等待统计....');
         var params = this.params();
         var range = nx.rangeDate.apply(null, params);
         var sum = 0;
         var result;
         this.stat = [];
-        this.key = inKey;
         Promise.all(range.map((item) => this.api(item))).then((res) => {
           sum = res.reduce((result, current) => {
             if (!current.length) return result;
@@ -58,21 +57,12 @@
         if (end < point1) return 1 * 60 * 60 * 1000;
       },
       apiKey() {
-        return new Promise((resolve) => {
-          gmsdk.http
-            .get({
-              url: 'https://hr.saybot.net:8443/Alo7HR/portal/index',
-              method: 'get',
-              responseType: 'html'
-            })
-            .then((res) => {
-              var matches = res.match(APIKEY_RE);
-              resolve(matches[1]);
-            });
-        });
+        var el = $('.essPolication2 .submenu li').eq(1);
+        return el.attr('id');
       },
       api(inDate) {
-        var url = `https://hr.saybot.net:8443/Alo7HR/ajax/function/alist!${this.key}.SE0302`;
+        var key = this.apiKey();
+        var url = `https://hr.saybot.net:8443/Alo7HR/ajax/function/alist!${key}.SE0302`;
         return gmsdk.http.post({
           url,
           data: {
@@ -86,7 +76,7 @@
   });
 
   var app = new App();
-  app.apiKey().then((key) => {
-    app.start(key);
-  });
+  setTimeout(() => {
+    app.start();
+  }, 4000);
 })();
