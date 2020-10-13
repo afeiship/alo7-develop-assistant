@@ -1,4 +1,10 @@
-(function () {
+/**
+ * @description
+ * 统计 ehr 有效工时
+ */
+
+$(document).ready(() => {
+
   var POINT1 = '18:30:00';
   var POINT2 = '19:30:00';
 
@@ -9,7 +15,7 @@
         if (!docUrl.includes('hr.saybot.net')) return false;
         if (docUrl.includes('/Alo7HR/login')) return false;
 
-        console.log('☘️ 等待统计....');
+        console.log('🍏 等待统计....');
 
         var params = this.params();
         var range = nx.rangeDate.apply(null, params);
@@ -86,8 +92,11 @@
     }
   });
 
-  var app = new App();
-  setTimeout(() => {
+
+  // wait to display
+  nx.waitToDisplay('#portal_ehr', 1000, (el) => {
+    var app = new App();
     app.start();
-  }, 4000);
-})();
+  });
+
+});
