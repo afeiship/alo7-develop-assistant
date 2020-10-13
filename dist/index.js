@@ -3,7 +3,7 @@
  *  description: Develop assistant for alo7.
  *  homepage: https://github.com/afeiship
  *  version: 1.0.19
- *  date: 2020-10-13T08:57:46.679Z
+ *  date: 2020-10-13T09:20:57.175Z
  *  license: MIT
  */
 

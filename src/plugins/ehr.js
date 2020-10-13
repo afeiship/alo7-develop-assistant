@@ -1,7 +1,6 @@
 (function () {
   var POINT1 = '18:30:00';
   var POINT2 = '19:30:00';
-  var APIKEY_RE = /<a href="app\/app!(\w+?)" size="" refresh="0"> <i class="glyphicon glyphicon-calendar"><\/i> <span title="个人考勤查询">个人考勤查询/;
 
   var App = nx.declare({
     methods: {
