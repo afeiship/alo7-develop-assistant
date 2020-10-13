@@ -6,8 +6,12 @@
   var App = nx.declare({
     methods: {
       start() {
-        if (!document.URL.includes('hr.saybot.net')) return false;
+        var docUrl = document.URL;;
+        if (!docUrl.includes('hr.saybot.net')) return false;
+        if (docUrl.includes('/Alo7HR/login')) return false;
+
         console.log('☘️ 等待统计....');
+
         var params = this.params();
         var range = nx.rangeDate.apply(null, params);
         var sum = 0;
