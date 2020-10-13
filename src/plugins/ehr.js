@@ -1,17 +1,19 @@
 (function () {
   var POINT1 = '18:30:00';
   var POINT2 = '19:30:00';
+  var APIKEY_RE = /<a href="app\/app!(\w+?)" size="" refresh="0"> <i class="glyphicon glyphicon-calendar"><\/i> <span title="个人考勤查询">个人考勤查询/;
 
   var App = nx.declare({
     methods: {
-      start() {
-        if(!document.URL.includes('hr.saybot.net')) return false;
+      start(inKey) {
+        if (!document.URL.includes('hr.saybot.net')) return false;
 
         var params = this.params();
         var range = nx.rangeDate.apply(null, params);
         var sum = 0;
         var result;
         this.stat = [];
+        this.key = inKey;
         Promise.all(range.map((item) => this.api(item))).then((res) => {
           sum = res.reduce((result, current) => {
             if (!current.length) return result;
@@ -55,10 +57,24 @@
         if (end > point1 && end < point2) return end - point1;
         if (end < point1) return 1 * 60 * 60 * 1000;
       },
+      apiKey() {
+        return new Promise((resolve) => {
+          gmsdk.http
+            .get({
+              url: 'https://hr.saybot.net:8443/Alo7HR/portal/index',
+              method: 'get',
+              responseType: 'html'
+            })
+            .then((res) => {
+              var matches = res.match(APIKEY_RE);
+              resolve(matches[1]);
+            });
+        });
+      },
       api(inDate) {
+        var url = `https://hr.saybot.net:8443/Alo7HR/ajax/function/alist!${this.key}.SE0302`;
         return gmsdk.http.post({
-          url:
-            'https://hr.saybot.net:8443/Alo7HR/ajax/function/alist!2CXvv_JQ9M03QhX8PGCgxw.SE0302',
+          url,
           data: {
             appParam: { TERM: inDate },
             appFnKey: 'SE0301',
@@ -70,5 +86,7 @@
   });
 
   var app = new App();
-  app.start();
+  app.apiKey().then((key) => {
+    app.start(key);
+  });
 })();
