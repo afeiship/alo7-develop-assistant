@@ -61,10 +61,11 @@
         var [date, _] = inEndStr.split(' ');
         var point1 = new Date(`${date} ${POINT1}`);
         var point2 = new Date(`${date} ${POINT2}`);
+        var unit = 1 * 60 * 60 * 1000;
         var end = new Date(inEndStr);
-        if (end > point2) return 2 * 60 * 60 * 1000;
-        if (end > point1 && end < point2) return point2 - end;
-        if (end < point1) return 1 * 60 * 60 * 1000;
+        if (end > point2) return 2 * unit;
+        if (end > point1 && end < point2) return point2 - end + unit;
+        if (end < point1) return 1 * unit;
       },
       apiKey() {
         var el = $('.essPolication2 .submenu li').eq(1);
