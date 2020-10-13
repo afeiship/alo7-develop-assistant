@@ -5,7 +5,7 @@
   var App = nx.declare({
     methods: {
       start() {
-        var docUrl = document.URL;;
+        var docUrl = document.URL;
         if (!docUrl.includes('hr.saybot.net')) return false;
         if (docUrl.includes('/Alo7HR/login')) return false;
 
@@ -24,25 +24,32 @@
             var subed = this.sub(end.CARDTIME);
             var duration = new Date(end.CARDTIME) - new Date(start.CARDTIME) - subed;
             this.stat.push({
-              start: start.CARDTIME,
-              end: end.CARDTIME,
-              sub: (subed / 1000 / 60).toFixed(2),
-              duration: (duration / 1000 / 60 / 60).toFixed(2)
+              上班: start.CARDTIME,
+              下班: end.CARDTIME,
+              扣除: this.val(subed),
+              实际工时: this.humanize(this.val(duration))
             });
             return duration + result;
           }, sum);
 
-          result = (sum / 1000 / 60 / 60).toFixed(2);
+          result = this.val(sum);
 
           this.stat.push({
-            start: `开始时间: ${params[0]}`,
-            end: `结束时间: ${params[1]}`,
-            sub: 0,
-            duration: result
+            上班: `开始时间: ${params[0]}`,
+            下班: `结束时间: ${params[1]}`,
+            扣除: 0,
+            实际工时: this.humanize(result)
           });
 
           console.table(this.stat);
         });
+      },
+      val(inValue) {
+        return parseFloat(inValue / 1000 / 60 / 60).toFixed(2);
+      },
+      humanize(inValue) {
+        var [hour, minute] = inValue.split('.');
+        return `${hour}小时${parseInt(parseFloat(`0.${minute}`) * 60)}分钟`;
       },
       params() {
         var date = new Date();
@@ -56,7 +63,7 @@
         var point2 = new Date(`${date} ${POINT2}`);
         var end = new Date(inEndStr);
         if (end > point2) return 2 * 60 * 60 * 1000;
-        if (end > point1 && end < point2) return end - point1;
+        if (end > point1 && end < point2) return point2 - end;
         if (end < point1) return 1 * 60 * 60 * 1000;
       },
       apiKey() {
