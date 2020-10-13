@@ -38,8 +38,9 @@ $(document).ready(() => {
 
     $('.operations li .heading .options li').prepend('<button class="clipboard item">Copy</button>')
     $(".clipboard.item").click((e) => {
-      var path = $(e.target).parents('.heading').find('.path').text();
-      gmsdk.setClipboard(path.trim());
+      var path = $(e.target).parents('.heading').find('.path').text().trim();
+      var method = $(e.target).parents('.heading').find('.http_method a').text().trim();
+      gmsdk.setClipboard(`['${method.toLowerCase()}', '${path}']`);
     })
 
     $(".clipboard.items").click((e) => {
