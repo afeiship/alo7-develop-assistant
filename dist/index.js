@@ -2,8 +2,8 @@
  *  name: @feizheng/alo7-develop-assistant
  *  description: Develop assistant for alo7.
  *  homepage: https://github.com/afeiship
- *  version: 1.0.13
- *  date: 2020-10-13T07:39:22.494Z
+ *  version: 1.0.14
+ *  date: 2020-10-13T07:41:53.525Z
  *  license: MIT
  */
 
