@@ -5,6 +5,8 @@
   var App = nx.declare({
     methods: {
       start() {
+        if(!document.URL.includes('hr.saybot.net')) return false;
+
         var params = this.params();
         var range = nx.rangeDate.apply(null, params);
         var sum = 0;
