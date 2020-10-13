@@ -64,7 +64,7 @@
         var unit = 1 * 60 * 60 * 1000;
         var end = new Date(inEndStr);
         if (end > point2) return 2 * unit;
-        if (end > point1 && end < point2) return point2 - end + unit;
+        if (end > point1 && end < point2) return end - point1 + unit;
         if (end < point1) return 1 * unit;
       },
       apiKey() {
