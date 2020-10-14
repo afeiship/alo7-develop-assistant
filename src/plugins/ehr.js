@@ -6,14 +6,18 @@
 $(document).ready(() => {
   var POINT1 = '18:30:00';
   var POINT2 = '19:30:00';
-  var TIPS = ['1. 使用F12打开开发者工具', '2. 切换到 Console 这个 Tab', '3. 刷新页面'].join('<br/>');
+  var TIPS = [
+    '1. 使用F12打开开发者工具',
+    '2. 切换到 Console 这个 Tab',
+    '3. 刷新页面，等待统计结果'
+  ].join('<br/>');
 
   var App = nx.declare({
     statics: {
       help() {
         $.toast({
           icon: 'info',
-          heading: '温馨提示',
+          heading: 'EHR小助手',
           position: 'top-right',
           stack: false,
           hideAfter: 50 * 1000,
@@ -103,7 +107,6 @@ $(document).ready(() => {
       }
     }
   });
-
 
   // 1. tips
   App.help();
