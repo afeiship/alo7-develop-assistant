@@ -6,15 +6,18 @@
 $(document).ready(() => {
   var POINT1 = '18:30:00';
   var POINT2 = '19:30:00';
+  var docUrl = document.URL;
   var TIPS = [
-    '1. 使用F12打开开发者工具',
-    '2. 切换到 Console 这个 Tab',
-    '3. 刷新页面，等待统计结果'
+    '1. 需要登录自己的 EHR',
+    '2. 使用F12打开开发者工具',
+    '3. 切换到 Console 这个 Tab',
+    '4. 刷新页面，等待统计结果'
   ].join('<br/>');
 
   var App = nx.declare({
     statics: {
       help() {
+        if (!docUrl.includes('hr.saybot.net')) return false;
         $.toast({
           icon: 'info',
           heading: 'EHR小助手',
@@ -27,7 +30,6 @@ $(document).ready(() => {
     },
     methods: {
       start() {
-        var docUrl = document.URL;
         if (!docUrl.includes('hr.saybot.net')) return false;
         if (docUrl.includes('/Alo7HR/login')) return false;
 
