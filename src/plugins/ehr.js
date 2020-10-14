@@ -76,8 +76,10 @@ $(document).ready(() => {
       params() {
         var date = new Date();
         var year = date.getFullYear();
+        var day = date.getDate();
         var month = date.getMonth();
-        return [`${year}-${month}-16`, `${year}-${month + 1}-15`, true];
+        var step = day <= 15 ? 0 : 1;
+        return [`${year}-${month + step}-16`, `${year}-${month + step + 1}-15`, true];
       },
       sub(inEndStr) {
         var [date, _] = inEndStr.split(' ');
