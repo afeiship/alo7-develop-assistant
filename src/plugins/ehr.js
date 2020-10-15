@@ -17,7 +17,6 @@ $(document).ready(() => {
   var App = nx.declare({
     statics: {
       help() {
-        if (!docUrl.includes('hr.saybot.net')) return false;
         $.toast({
           icon: 'info',
           heading: 'EHR小助手',
@@ -30,7 +29,6 @@ $(document).ready(() => {
     },
     methods: {
       start() {
-        if (!docUrl.includes('hr.saybot.net')) return false;
         if (docUrl.includes('/Alo7HR/login')) return false;
 
         console.log('🍏 等待统计....');
@@ -115,6 +113,7 @@ $(document).ready(() => {
   // 1. tips
   App.help();
 
+  if (!docUrl.includes('hr.saybot.net')) return false;
   // 2. wait to display
   nx.waitToDisplay('#portal_ehr', 1000, (el) => {
     var app = new App();
