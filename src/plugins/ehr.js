@@ -14,6 +14,8 @@ $(document).ready(() => {
     '4. 刷新页面，等待统计结果'
   ].join('<br/>');
 
+  if (!docUrl.includes('hr.saybot.net')) return false;
+
   var App = nx.declare({
     statics: {
       help() {
@@ -113,7 +115,6 @@ $(document).ready(() => {
   // 1. tips
   App.help();
 
-  if (!docUrl.includes('hr.saybot.net')) return false;
   // 2. wait to display
   nx.waitToDisplay('#portal_ehr', 1000, (el) => {
     var app = new App();
