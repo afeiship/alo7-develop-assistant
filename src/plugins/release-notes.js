@@ -1,6 +1,7 @@
 /**
  * @description
- * 统计 ehr 有效工时
+ * 一键复制 release-notes
+ * /pages/viewpage.action?pageId=52532308
  */
 
 $(document).ready(() => {
