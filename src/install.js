@@ -6,6 +6,7 @@
 // @author       aric.zheng
 // @match        *://*/*
 // @updateURL https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/dist/install.js
+// @supportURL   https://github.com/afeiship/alo7-develop-assistant/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @require  https://cdn.jsdelivr.net/npm/@feizheng/gm-sdk@1.1.5
 // @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@__VERSION__
