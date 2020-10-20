@@ -6,6 +6,10 @@
  */
 
 $(document).ready(() => {
+
+  var docUrl = document.URL;
+  if (!docUrl.includes('kellis-ng.')) return false;
+
   var attachElement =
     '<button id="copy-token" class="alo7-btn alo7-btn-primary">复制Token</button>';
   var App = nx.declare({
