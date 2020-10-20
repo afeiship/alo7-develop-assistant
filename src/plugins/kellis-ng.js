@@ -7,7 +7,7 @@
 
 $(document).ready(() => {
   var attachElement =
-    '<button id="copy-token" class="alo7-btn alo7-btn-primary">CopyToken</button>';
+    '<button id="copy-token" class="alo7-btn alo7-btn-primary">复制Token</button>';
   var App = nx.declare({
     methods: {
       start() {
