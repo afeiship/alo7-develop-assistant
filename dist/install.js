@@ -1,15 +1,18 @@
 // ==UserScript==
 // @name         alo7-develop-assistant
 // @namespace    https://github.com/afeiship/alo7-develop-assistant
-// @version      1.0.34
+// @version      1.0.35
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
-// @match        *://*/*
+// @include    *://*.saybot.com/*
+// @include    *://*.shuobaotang.com/*
+// @include    *://*.alo7.com/*
+// @include    *://*.alo7.cn/*
 // @updateURL https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/dist/install.js
-// @supportURL   https://github.com/afeiship/alo7-develop-assistant/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
+// @supportURL https://github.com/afeiship/alo7-develop-assistant/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @require  https://cdn.jsdelivr.net/npm/@feizheng/gm-sdk@1.1.5
-// @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@1.0.34
+// @require  https://cdn.jsdelivr.net/npm/@feizheng/alo7-develop-assistant@1.0.35
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js
 // @resource JQ_TOAST https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css
 // @grant GM_addStyle

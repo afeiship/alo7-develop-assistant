@@ -4,7 +4,10 @@
 // @version      __VERSION__
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
-// @match        *://*/*
+// @include    *://*.saybot.com/*
+// @include    *://*.shuobaotang.com/*
+// @include    *://*.alo7.com/*
+// @include    *://*.alo7.cn/*
 // @updateURL https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/dist/install.js
 // @supportURL https://github.com/afeiship/alo7-develop-assistant/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
