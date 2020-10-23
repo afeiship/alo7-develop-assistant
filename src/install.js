@@ -4,6 +4,8 @@
 // @version      __VERSION__
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
+// @include    *://*.saybot.net:*/*
+// @include    *://*.saybot.net/*
 // @include    *://*.saybot.com/*
 // @include    *://*.shuobaotang.com/*
 // @include    *://*.alo7.com/*
