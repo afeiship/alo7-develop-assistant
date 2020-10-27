@@ -1,3 +1,9 @@
+/**
+ * @description
+ * 1. 添加 git message 的工具条
+ * 2. 复制 issue id 功能
+ */
+
 var ISSUE_RE = /redmine.*\/issues\/(\d+)/;
 var ISSUE_BUG_ID = /(\w+)\s+#(\d+)/;
 var GIT_ACTION_MAP = {
@@ -86,7 +92,6 @@ $(document).ready(function () {
     e.preventDefault();
     gmsdk.setClipboard(text);
 
-
     $.toast({
       icon: 'info',
       heading: '复制成功',
@@ -114,5 +119,27 @@ $(document).ready(function () {
       hideAfter: 1000,
       text
     });
+  });
+
+  /**
+   * 添加复制 id 功能
+   */
+  $('#content .contextual').prepend(
+    `<a id="copy-issue-id" class="icon icon-copy">复制Issue ID</a>`
+  );
+  $('#copy-issue-id').click(() => {
+    const url = new URL(location.href);
+    const { pathname } = url;
+    const arr = pathname.split('/');
+    const text = arr[arr.length - 1];
+    $.toast({
+      icon: 'success',
+      heading: '复制成功',
+      position: 'top-right',
+      stack: false,
+      hideAfter: 1000,
+      text
+    });
+    gmsdk.setClipboard(text);
   });
 });
