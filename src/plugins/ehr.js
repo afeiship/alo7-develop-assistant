@@ -7,6 +7,11 @@ $(document).ready(() => {
   var POINT1 = '18:30:00';
   var POINT2 = '19:30:00';
   var docUrl = document.URL;
+  var ignoreTimes = {
+    am: ['12:00', '13:00'],
+    pm: ['18:30', '19:30']
+  };
+
   var TIPS = [
     '1. 需要登录自己的 EHR',
     '2. 使用F12打开开发者工具',
@@ -83,8 +88,8 @@ $(document).ready(() => {
             下班: `结束时间: ${params[1]}`,
             工作日: 0,
             扣除: 0,
-            实际加班: `${this.val(nx.sum(ots))}小时`,
-            实际工作: `${this.val(nx.sum(durs))}小时`
+            实际加班: this.humanize(nx.sum(ots)),
+            实际工作: this.humanize(nx.sum(durs))
           });
 
           console.table(stats);
@@ -93,9 +98,6 @@ $(document).ready(() => {
       ottime(inStartDate, inDuration) {
         var worked = isWeekEnd(inStartDate) ? 0 : 8 * 3600 * 1000;
         return inDuration - worked;
-      },
-      val(inValue) {
-        return parseFloat(inValue / 1000 / 60 / 60).toFixed(2);
       },
       humanize(inValue) {
         var { hour, minute } = nx.timeFormat(inValue);
