@@ -15,6 +15,10 @@ $(document).ready(() => {
   ].join('<br/>');
 
   if (!docUrl.includes('hr.saybot.net')) return false;
+  var isWeekEnd = (inDate) => {
+    var day = inDate.getDay();
+    return day === 0 || day === 6;
+  };
 
   var App = nx.declare({
     statics: {
@@ -37,42 +41,64 @@ $(document).ready(() => {
 
         var params = this.params();
         var range = nx.rangeDate.apply(null, params);
-        var sum = 0;
-        var result;
-        this.stat = [];
+        var weekends = ['工作 🤣', '周末 😎'];
+
         Promise.all(range.map((item) => this.api(item))).then((res) => {
-          sum = res.reduce((result, current) => {
-            if (!current.length) return result;
-            var start = current[0];
-            var end = current[current.length - 1];
-            var subed = this.sub(end.CARDTIME);
-            var duration = new Date(end.CARDTIME) - new Date(start.CARDTIME) - subed;
-            this.stat.push({
-              上班: start.CARDTIME,
-              下班: end.CARDTIME,
-              扣除: this.val(subed),
-              实际工时: this.humanize(this.val(duration))
-            });
-            return duration + result;
-          }, sum);
+          this.stat = res
+            .map((current) => {
+              if (current.length < 2) return null;
+              var start = current[0];
+              var end = current[current.length - 1];
+              var subed = this.sub(end.CARDTIME);
+              var startDate = new Date(start.CARDTIME);
+              var duration = new Date(end.CARDTIME) - startDate - subed;
+              var ot = this.ottime(startDate, duration);
+              return {
+                start: start.CARDTIME,
+                end: end.CARDTIME,
+                subed: subed,
+                weekday: !isWeekEnd(startDate),
+                duration,
+                ot
+              };
+            })
+            .filter(Boolean);
 
-          result = this.val(sum);
-
-          this.stat.push({
-            上班: `开始时间: ${params[0]}`,
-            下班: `结束时间: ${params[1]}`,
-            扣除: 0,
-            实际工时: this.humanize(result)
+          var stats = this.stat.map((item) => {
+            return {
+              上班: item.start,
+              下班: item.end,
+              工作日: weekends[Number(!item.weekday)],
+              扣除: this.humanize(item.subed),
+              实际加班: this.humanize(item.ot),
+              实际工作: this.humanize(item.duration)
+            };
           });
 
-          console.table(this.stat);
+          var ots = this.stat.map((item) => item.ot);
+          var durs = this.stat.map((item) => item.duration);
+
+          stats.push({
+            上班: `开始时间: ${params[0]}`,
+            下班: `结束时间: ${params[1]}`,
+            工作日: 0,
+            扣除: 0,
+            实际加班: `${this.val(nx.sum(ots))}小时`,
+            实际工作: `${this.val(nx.sum(durs))}小时`
+          });
+
+          console.table(stats);
         });
+      },
+      ottime(inStartDate, inDuration) {
+        var worked = isWeekEnd(inStartDate) ? 0 : 8 * 3600 * 1000;
+        return inDuration - worked;
       },
       val(inValue) {
         return parseFloat(inValue / 1000 / 60 / 60).toFixed(2);
       },
       humanize(inValue) {
-        var [hour, minute] = inValue.split('.');
+        var { hour, minute } = nx.timeFormat(inValue);
         return `${hour}小时${parseInt(parseFloat(`0.${minute}`) * 60)}分钟`;
       },
       params() {
