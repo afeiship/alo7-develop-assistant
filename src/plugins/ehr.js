@@ -17,7 +17,9 @@ $(document).ready(() => {
     '1. 需要登录自己的 EHR',
     '2. 使用F12打开开发者工具',
     '3. 切换到 Console 这个 Tab',
-    '4. 刷新页面，等待统计结果'
+    '4. 刷新页面，等待统计结果',
+    '当前版本: __VERSION__',
+    '更新时间: __UPDATED_AT__'
   ].join('<br/>');
 
   if (!docUrl.includes('hr.saybot.net')) return false;
