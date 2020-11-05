@@ -102,7 +102,7 @@ $(document).ready(() => {
       },
       humanize(inValue) {
         var { hour, minute } = nx.timeFormat(inValue);
-        return `${hour}小时${parseInt(parseFloat(`0.${minute}`) * 60)}分钟`;
+        return `${hour}小时${minute}分钟`;
       },
       params() {
         var date = new Date();
