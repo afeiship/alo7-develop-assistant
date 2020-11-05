@@ -1,6 +1,6 @@
 {
   "name": "@feizheng/alo7-develop-assistant",
-  "version": "1.0.39",
+  "version": "1.0.40",
   "description": "Develop assistant for alo7.",
   "homepage": "https://github.com/afeiship",
   "author": {
@@ -14,6 +14,7 @@
   "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
+    "@feizheng/next-date": "^1.0.3",
     "@feizheng/next-nice-comments": "^1.1.0",
     "@feizheng/next-rollup-banner": "^1.0.1",
     "rollup": "^2.20.0",
@@ -26,5 +27,17 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
-  }
+  },
+  "dependencies": {
+    "rollup-plugin-replace": "^2.2.0"
+  },
+  "keywords": [
+    "alo7",
+    "develop",
+    "assistant",
+    "tampermonkey",
+    "greasyfork",
+    "helper",
+    "gm"
+  ]
 }
