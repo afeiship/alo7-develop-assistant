@@ -8,10 +8,6 @@ $(document).ready(() => {
   var POINT1 = '18:30:00';
   var POINT2 = '19:30:00';
   var docUrl = document.URL;
-  var ignoreTimes = {
-    am: ['12:00', '13:00'],
-    pm: ['18:30', '19:30']
-  };
 
   var TIPS = [
     '1. 需要登录自己的 EHR',
@@ -23,10 +19,6 @@ $(document).ready(() => {
   ].join('<br/>');
 
   if (!docUrl.includes('hr.saybot.net')) return false;
-  var isWeekEnd = (inDate) => {
-    var day = inDate.getDay();
-    return day === 0 || day === 6;
-  };
 
   var App = nx.declare({
     statics: {
@@ -65,7 +57,7 @@ $(document).ready(() => {
                 start: start.CARDTIME,
                 end: end.CARDTIME,
                 subed: subed,
-                weekday: !isWeekEnd(startDate),
+                weekday: !nx.Date.isWeekend(startDate),
                 duration,
                 ot
               };
@@ -99,7 +91,7 @@ $(document).ready(() => {
         });
       },
       ottime(inStartDate, inDuration) {
-        var worked = isWeekEnd(inStartDate) ? 0 : 8 * 3600 * 1000;
+        var worked = nx.Date.isWeekend(inStartDate) ? 0 : 8 * 3600 * 1000;
         return inDuration - worked;
       },
       humanize(inValue) {
