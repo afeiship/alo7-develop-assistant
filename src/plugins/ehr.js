@@ -92,7 +92,8 @@ $(document).ready(() => {
       },
       ottime(inStartDate, inDuration) {
         var worked = nx.Date.isWeekend(inStartDate) ? 0 : 8 * 3600 * 1000;
-        return inDuration - worked;
+        var ot = inDuration - worked;
+        return ot > 0 ? ot : 0;
       },
       humanize(inValue) {
         var { hour, minute } = nx.timeFormat(inValue);
