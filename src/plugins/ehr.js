@@ -105,7 +105,10 @@ $(document).ready(() => {
         var day = date.getDate();
         var month = date.getMonth();
         var step = day <= 15 ? 0 : 1;
-        return [`${year}-${month + step}-16`, `${year}-${month + step + 1}-15`, true];
+        var month_ = month + step + 1;
+        var nextYear = month_ > 12 ? year + 1 : year;
+        var nextMonth = month_ > 12 ? month_ - 12 : month_;
+        return [`${year}-${month + step}-16`, `${nextYear}-${nextMonth}-15`, true];
       },
       sub(inEndStr) {
         var [date, _] = inEndStr.split(' ');
