@@ -65,7 +65,6 @@ $(document).ready(() => {
             .filter(Boolean);
 
           var stats = this.stat.map((item) => {
-            console.log(item.day,nx.Weeks.at(item.day, 'en'));
             var face = `周${nx.Weeks.day(item.day, 'cn')}:${nx.Weeks.day(item.day, 'emoji')}`
             return {
               上班: item.start,
