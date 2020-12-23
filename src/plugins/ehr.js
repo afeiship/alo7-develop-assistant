@@ -57,7 +57,7 @@ $(document).ready(() => {
                 start: start.CARDTIME,
                 end: end.CARDTIME,
                 subed: subed,
-                weekday: !nx.Date.isWeekend(startDate),
+                day: startDate,
                 duration,
                 ot
               };
@@ -65,10 +65,12 @@ $(document).ready(() => {
             .filter(Boolean);
 
           var stats = this.stat.map((item) => {
+            console.log(item.day,nx.Weeks.at(item.day, 'en'));
+            var face = `周${nx.Weeks.day(item.day, 'cn')}:${nx.Weeks.day(item.day, 'emoji')}`
             return {
               上班: item.start,
               下班: item.end,
-              工作日: weekends[Number(!item.weekday)],
+              工作日: face,
               扣除: this.humanize(item.subed),
               实际加班: this.humanize(item.ot),
               实际工作: this.humanize(item.duration)
@@ -141,6 +143,8 @@ $(document).ready(() => {
 
   // 1. tips
   App.help();
+
+  debugger;
 
   // 2. wait to display
   nx.waitToDisplay('#portal_ehr', 1000, (el) => {

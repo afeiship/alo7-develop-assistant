@@ -1,5 +1,5 @@
 {
-  "name": "@feizheng/alo7-develop-assistant",
+  "name": "@jswork/alo7-develop-assistant",
   "version": "1.0.47",
   "description": "Develop assistant for alo7.",
   "homepage": "https://github.com/afeiship",
@@ -9,28 +9,29 @@
   },
   "scripts": {
     "dev": "rollup -w -c rollup.config.js",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "release": "release-it"
   },
   "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
-    "@feizheng/next-date": "^1.0.3",
-    "@feizheng/next-nice-comments": "^1.1.0",
-    "@feizheng/next-rollup-banner": "^1.0.1",
+    "@jswork/next": "^1.0.4",
+    "@jswork/next-date": "^1.0.0",
+    "@jswork/next-nice-comments": "^1.0.1",
+    "@jswork/next-rollup-banner": "^1.0.0",
+    "release-it": "^14.2.2",
     "rollup": "^2.20.0",
     "rollup-plugin-banner": "^0.2.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-copy": "^3.3.0",
     "rollup-plugin-filesize": "^9.0.2",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-terser": "^6.1.0"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
-  },
-  "dependencies": {
-    "rollup-plugin-replace": "^2.2.0"
   },
   "keywords": [
     "alo7",

@@ -18,3 +18,4 @@ gulpfile.js
 .github
 api
 rollup.config.js
+.release-it.json

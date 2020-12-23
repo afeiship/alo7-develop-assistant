@@ -6,8 +6,8 @@ import copy from 'rollup-plugin-copy';
 import replace from 'rollup-plugin-replace';
 import pkg from './package.json';
 import { terser } from 'rollup-plugin-terser';
-import '@feizheng/next-rollup-banner';
-import '@feizheng/next-date';
+import '@jswork/next-rollup-banner';
+import '@jswork/next-date';
 
 const installCfg = {
   targets: [
