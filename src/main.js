@@ -1,5 +1,6 @@
 import './plugins/ehr';
-import './plugins/kellis-ng';
+import './plugins/kellis-token';
+import './plugins/kellis-url';
 import './plugins/redmine';
 import './plugins/release-notes';
 import './plugins/swagger-ui';

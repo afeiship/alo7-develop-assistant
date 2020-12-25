@@ -13,10 +13,11 @@
 // @updateURL https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/dist/install.js
 // @supportURL https://github.com/afeiship/alo7-develop-assistant/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
-// @require  https://cdn.jsdelivr.net/npm/@jswork/gm-sdk@1.0.4
+// @require  https://cdn.jsdelivr.net/npm/@jswork/gm-sdk@1.0.7
 // @require  https://cdn.jsdelivr.net/npm/@jswork/alo7-develop-assistant@__VERSION__
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js
 // @resource JQ_TOAST https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css
+// @resource GM_STYLES https://unpkg.com/@jswork/gm-styles@1.0.3/dist/index.css
 // @grant GM_addStyle
 // @grant GM_deleteValue
 // @grant GM_listValues
@@ -41,3 +42,6 @@
 // @grant  window.focus
 // @icon64 https://tva1.sinaimg.cn/large/007S8ZIlgy1gexw87htqhj305k05k74o.jpg
 // ==/UserScript==
+
+const GM_STYLES = GM_getResourceText('GM_STYLES');
+GM_addStyle(GM_STYLES);
