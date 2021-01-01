@@ -41,7 +41,6 @@ $(document).ready(() => {
 
         var params = this.params();
         var range = nx.rangeDate.apply(null, params);
-        var weekends = ['工作 🤣', '周末 😎'];
 
         Promise.all(range.map((item) => this.api(item))).then((res) => {
           this.stat = res
@@ -65,7 +64,7 @@ $(document).ready(() => {
             .filter(Boolean);
 
           var stats = this.stat.map((item) => {
-            var face = `周${nx.Weeks.day(item.day, 'cn')}:${nx.Weeks.day(item.day, 'emoji')}`
+            var face = `周${nx.Weeks.day(item.day, 'cn')}:${nx.Weeks.day(item.day, 'emoji')}`;
             return {
               上班: item.start,
               下班: item.end,
@@ -101,15 +100,25 @@ $(document).ready(() => {
         return `${hour}小时${minute}分钟`;
       },
       params() {
-        var date = new Date();
-        var year = date.getFullYear();
-        var day = date.getDate();
-        var month = date.getMonth();
-        var step = day <= 15 ? 0 : 1;
-        var month_ = month + step + 1;
-        var nextYear = month_ > 12 ? year + 1 : year;
-        var nextMonth = month_ > 12 ? month_ - 12 : month_;
-        return [`${year}-${month + step}-16`, `${nextYear}-${nextMonth}-15`, true];
+        var current = new Date();
+        var day = current.getDate();
+        var month = current.getMonth();
+        var param1;
+        var param2;
+
+        if (day <= 16) {
+          param1 = new Date(new Date().setMonth(month - 1));
+          param2 = current;
+        } else {
+          param1 = current;
+          param2 = new Date(new Date().setMonth(month + 1));
+        }
+
+        return [
+          nx.Date.format(param1, 'yyyy-mm-15'),
+          nx.Date.format(param2, 'yyyy-mm-16'),
+          true
+        ];
       },
       sub(inEndStr) {
         var [date, _] = inEndStr.split(' ');
