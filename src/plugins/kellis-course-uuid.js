@@ -16,11 +16,13 @@ $(document).ready(() => {
           .find('[data-component="react-card"]');
         var $item = list.eq(0);
         var uuid = $item.data('uuid');
-        $item.css({ display: 'flex', 'jusify-content': 'space-between' });
+        $item
+          .find('.title')
+          .css({ display: 'flex', 'justify-content': 'space-between', 'align-items': 'center' });
         $item
           .find('.title')
           .append(
-            `<button data-uuid="${uuid}" data-action="copy-course-uuid" class="gm-btn gm-mini gm-btn-primary">㊢</button>`
+            `<button data-uuid="${uuid}" data-action="copy-course-uuid" class="gm-btn is-small gm-btn-default">🤡</button>`
           );
 
         $('[data-action="copy-course-uuid"]').click((evt) => {
