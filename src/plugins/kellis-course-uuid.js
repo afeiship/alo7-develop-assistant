@@ -14,22 +14,26 @@ $(document).ready(() => {
         var list = $('#contentContainer')
           .find('[class^="Course__ContentLeftList"]')
           .find('[data-component="react-card"]');
-        var $item = list.eq(0);
-        var uuid = $item.data('uuid');
-        $item
-          .find('.title')
-          .css({ display: 'flex', 'justify-content': 'space-between', 'align-items': 'center' });
-        $item
-          .find('.title')
-          .append(
-            `<button data-uuid="${uuid}" data-action="copy-course-uuid" class="gm-btn is-small gm-btn-default">🤡</button>`
+
+        list.each((index, item) => {
+          var $item = $(item);
+          var uuid = $item.data('uuid');
+          $item.find('.title').css({ display: 'flex' });
+          $item.find('.title').addClass('gm-row gm-row-center gm-row-justify-between');
+          $item.find('.title').append(
+            `<button
+                  data-uuid="${uuid}"
+                  data-action="copy-course-uuid"
+                  class="gm-btn is-small gm-btn-default">🐠</button>`
           );
+        });
 
         $('[data-action="copy-course-uuid"]').click((evt) => {
-          gmsdk.setClipboard(uuid);
+          var text = $(evt.target).data('uuid');
+          gmsdk.setClipboard(text);
           $.toast({
             icon: 'success',
-            heading: '复制成功',
+            heading: `复制成功`,
             position: 'top-right',
             stack: false,
             hideAfter: 1000

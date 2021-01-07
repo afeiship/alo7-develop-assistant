@@ -17,7 +17,7 @@
 // @require  https://cdn.jsdelivr.net/npm/@jswork/alo7-develop-assistant@__VERSION__
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js
 // @resource JQ_TOAST https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css
-// @resource GM_STYLES https://unpkg.com/@jswork/gm-styles@1.0.3/dist/index.css
+// @resource GM_STYLES https://unpkg.com/@jswork/gm-styles@1.0.6/dist/index.css
 // @grant GM_addStyle
 // @grant GM_deleteValue
 // @grant GM_listValues
