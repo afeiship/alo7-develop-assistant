@@ -115,8 +115,8 @@ $(document).ready(() => {
         }
 
         return [
-          nx.Date.format(param1, 'yyyy-mm-15'),
-          nx.Date.format(param2, 'yyyy-mm-16'),
+          nx.Date.format(param1, 'yyyy-mm-16'),
+          nx.Date.format(param2, 'yyyy-mm-15'),
           true
         ];
       },
