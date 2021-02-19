@@ -1,7 +1,7 @@
-import './plugins/ehr';
+// import './plugins/ehr';
 import './plugins/kellis-course-uuid';
 import './plugins/kellis-token';
-import './plugins/kellis-url';
+// import './plugins/kellis-url';
 import './plugins/redmine';
 import './plugins/release-notes';
 import './plugins/swagger-ui';
