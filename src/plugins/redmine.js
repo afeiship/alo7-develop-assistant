@@ -62,8 +62,12 @@ gmsdk.addStyle(`
     }
 
     .btn:last-child{
-      border-color: #e74c3c;
-      background-color: #e74c3c;
+      border-color: #b9645b;
+      background-color: #b9645b;
+    }
+    .btn:last-child:hover,
+    .btn:last-child:active{
+      background: #e74c3c;;
     }
 `);
 
@@ -85,8 +89,8 @@ $(document).ready(function () {
         <span class="git_msg">${git_msg}</span>
       </div>
       <div class="right">
-        <button id="gitflow" class="btn btn-small">复制: gitflow branch name</button>
         <button id="gitmsg" class="btn btn-small">复制: git message </button>
+        <button id="gitflow" class="btn btn-small">复制: gitflow branch name</button>
       </div>
     </header>
   `);
@@ -116,7 +120,7 @@ $(document).ready(function () {
     var text = `${version}/redmine-${GIT_BRANCH_MAP[issue_bug] || 'issue'}-${id}`;
     gmsdk.setClipboard(text);
     $.toast({
-      icon: 'success',
+      icon: 'info',
       heading: '复制成功',
       position: 'top-right',
       stack: false,
