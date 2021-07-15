@@ -11,6 +11,11 @@ var GIT_ACTION_MAP = {
   Task: 'feat'
 };
 
+var GIT_BRANCH_MAP = {
+  Bug: 'bug',
+  Task: 'issue'
+};
+
 var JQ_TOAST = GM_getResourceText('JQ_TOAST');
 GM_addStyle(JQ_TOAST);
 
@@ -19,16 +24,8 @@ gmsdk.addStyle(`
       display: flex;
       align-items: center;
       justify-content:space-between;
-      cursor: pointer;
       background: #f9f9f9;
       transition: all 0.3s;
-    }
-    #git_msg:hover {
-      border:1px solid #ccc;
-      background: #f1f1f1;
-    }
-    #git_msg:active{
-      background: #eee;
     }
 
     #git_msg>.left{
@@ -63,6 +60,11 @@ gmsdk.addStyle(`
     .git_action[data-git-action="fix"]{
       background-color: #e74c3c;
     }
+
+    .btn:last-child{
+      border-color: #e74c3c;
+      background-color: #e74c3c;
+    }
 `);
 
 $(document).ready(function () {
@@ -73,6 +75,7 @@ $(document).ready(function () {
   var message = $('#content h3').eq(0).text();
   var git_action = `${GIT_ACTION_MAP[issue_bug] || 'feat'}`;
   var git_msg = `${message} - (REDMINE-${id})`;
+  var fixed_version = $('.fixed-version .value').text();
 
   $('#content h2').after(`
     <header id="git_msg" class="issue tracker-58 1-2 priority-4 priority-default details left">
@@ -82,27 +85,13 @@ $(document).ready(function () {
         <span class="git_msg">${git_msg}</span>
       </div>
       <div class="right">
-        <span class="icon icon-copy">[ 点击/右键 ]</span> 可以复制内容到简体板
+        <button id="gitflow" class="btn btn-small">复制: gitflow branch name</button>
+        <button id="gitmsg" class="btn btn-small">复制: git message </button>
       </div>
     </header>
   `);
 
-  $('#content #git_msg').contextmenu(function (e) {
-    var text = git_msg;
-    e.preventDefault();
-    gmsdk.setClipboard(text);
-
-    $.toast({
-      icon: 'info',
-      heading: '复制成功',
-      position: 'top-right',
-      stack: false,
-      hideAfter: 1000,
-      text
-    });
-  });
-
-  $('#content #git_msg').click(function () {
+  $('#gitmsg').click(function () {
     var text = `${git_action}: ${git_msg}`;
     var versionText = $('.fixed-version').text();
     if (versionText.includes('.')) {
@@ -121,17 +110,11 @@ $(document).ready(function () {
     });
   });
 
-  /**
-   * 添加复制 id 功能
-   */
-  $('#content .contextual').prepend(
-    `<a id="copy-issue-id" class="icon icon-copy">复制Issue ID</a>`
-  );
-  $('#copy-issue-id').click(() => {
-    const url = new URL(location.href);
-    const { pathname } = url;
-    const arr = pathname.split('/');
-    const text = arr[arr.length - 1];
+  $('#gitflow').click(function () {
+    var re = /[._()]/g;
+    var version = nx.kebabCase(fixed_version.replace(re, ''));
+    var text = `${version}/redmine-${GIT_BRANCH_MAP[issue_bug] || 'issue'}-${id}`;
+    gmsdk.setClipboard(text);
     $.toast({
       icon: 'success',
       heading: '复制成功',
@@ -140,6 +123,5 @@ $(document).ready(function () {
       hideAfter: 1000,
       text
     });
-    gmsdk.setClipboard(text);
   });
 });
