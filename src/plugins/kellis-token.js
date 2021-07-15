@@ -10,12 +10,11 @@ $(document).ready(() => {
   var docUrl = document.URL;
   if (!docUrl.includes('kellis-ng.')) return false;
 
-  var attachElement =
-    '<button id="copy-token" class="alo7-btn alo7-btn-primary">复制Token</button>';
+  var attachElement = '<button id="copy-token" class="ant-btn ant-btn-primary">复制Token</button>';
   var App = nx.declare({
     methods: {
       start() {
-        var target = $('.alo7-layout-header .alo7-dropdown-trigger');
+        var target = $('.ant-layout-header .ant-dropdown-trigger');
         target.after(attachElement);
         this.attachEvents();
       },
