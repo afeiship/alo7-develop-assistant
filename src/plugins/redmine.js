@@ -60,15 +60,6 @@ gmsdk.addStyle(`
     .git_action[data-git-action="fix"]{
       background-color: #e74c3c;
     }
-
-    .btn:last-child{
-      border-color: #b9645b;
-      background-color: #b9645b;
-    }
-    .btn:last-child:hover,
-    .btn:last-child:active{
-      background: #e74c3c;;
-    }
 `);
 
 $(document).ready(function () {
@@ -89,8 +80,8 @@ $(document).ready(function () {
         <span class="git_msg">${git_msg}</span>
       </div>
       <div class="right">
-        <button id="gitmsg" class="btn btn-small">复制: git message </button>
-        <button id="gitflow" class="btn btn-small">复制: gitflow branch name</button>
+        <button id="gitmsg" class="gm-btn gm-btn-primary is-large">复制: git message </button>
+        <button id="gitflow" class="gm-btn gm-btn-positive is-large">复制: gitflow branch name</button>
       </div>
     </header>
   `);
