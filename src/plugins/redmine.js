@@ -65,14 +65,14 @@ gmsdk.addStyle(`
 $(document).ready(function () {
   var issue_matches = ISSUE_RE.exec(location.href);
   if (!issue_matches) return;
-  var issue_title = $('#content h2').text();
+  var issue_title = $('#content h2').eq(0).text();
   var [issue_bug, id] = issue_title.split(' #');
   var message = $('#content h3').eq(0).text();
   var git_action = `${GIT_ACTION_MAP[issue_bug] || 'feat'}`;
   var git_msg = `${message} - (REDMINE-${id})`;
   var fixed_version = $('.fixed-version .value').text();
 
-  $('#content h2').after(`
+  $('#content h2').eq(0).after(`
     <header id="git_msg" class="issue tracker-58 1-2 priority-4 priority-default details left">
       <div class="left">
         <span class="git_action" data-git-action="${git_action}">${git_action}</span>
