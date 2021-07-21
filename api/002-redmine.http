@@ -1,31 +1,28 @@
-POST https://redmine.saybot.net/issues
-Content-Type: multipart/form-data;
-Cookie: _ga=GA1.2.1509149461.1625544324; _redmine_session=eU1sb1c2QlJraHdJTFBIbUZRaEpCbFFoZTN4Y1RNNitRTFZPRU5iS0tIQzNZdkplR2JLY1NQSnl6TStVa2Q1Qm9rbTlBY29pTWd0YVRqdy82TXRIRHZpLzZlUDlSVnZuMHB3US9iNGx0RmxBT0VxYk9xSGpFalRnRHVWblFrVjBNZHhOWWV5NjBrQ3I5LytQb0dXVjNOZDhmcEZFUXBlME9xVTFrNW1qNng4WG1FYWhYdC9NWHJVdDE4dEhDRWJMZHBrZ2hzNU9ydmhrbEJzZmUrMkphWEZFcm1jcjM1RjROMU82ZmRPMWY0clc0Y2tHSmpHL21URDRaQlEyZGVXZ3RjaVdJTXp2WDdIcFhBTzVsZHpHYjZkWWo3TjZlazgyVmRYc3dpUzdyc2E5b1BLQmZKWG14SUUvNG1HOURCb1EzWmhQNy95RmUxYSsrdXRIbUNuTGx6ZCtkNlBMWjBNSWFyNU8yZTM3Z0FjWnByVDNHRll6Mzk5NmdlYklvYW1ndGFPZkNNOTgvMi9tL3JYTUNaVzJjM2k3cGlRTUY5WXlNRXk5OElnalMwZjY4RnkyYWY2cWJVR0NEV3JwMG5FOGt2UTFibGl6ejhpaThvbllpaXdpOHBocGhGNk5jS0xWL0N6NzdQbFRjR05MSkk1eXY3dmtISWdaaW9oSC9ZeHBTemFBVG5RZDYxd0pTSDRiODU4UlRDSXpIZEl2NklrTWxlcE5vdnYrNWUvTWZTZmJzS3lHYWNuZVNhbXhpbzFpLS1TektZS015bDdEL3dRUnlYNU5NZlJRPT0%3D--7b8d987e59775ddb52b530096183ee8a17ede1a8
+### issues
+GET https://redmine.saybot.net/issues.json?limit=3
+X-Redmine-API-Key: 7d0d1e1e5b59da84cd4974395e764b0a36894318
+Content-Type: application/json
 
-# authenticity_token: $('meta[name="csrf-token"]').attr('content')
+### create issue
+POST https://redmine.saybot.net/issues.json
+X-Redmine-API-Key: 7d0d1e1e5b59da84cd4974395e764b0a36894318
+Content-Type: application/json
 
-utf8: ✓
-authenticity_token: YiAD/NUD4hlJ5T/hG5S59AMKcQBQzt3yqh2pMCQU8MTNB3jRmDiR4NE9PsIAo7k7HJE4X4y0WVxOC8UjY00L0Q==
-form_update_triggered_by:
-issue[project_id]: 155
-issue[tracker_id]: 5
-issue[subject]: 【前端】接口更新1
-issue[description]: NONE
-issue[status_id]: 2
-was_default_status: 2
-issue[priority_id]: 4
-issue[assigned_to_id]: 858
-issue[fixed_version_id]: 3277
-issue[start_date]: 2021-07-16
-issue[due_date]:
-issue[estimated_hours]:
-issue[custom_field_values][62]:
-issue[custom_field_values][63]:
-issue[custom_field_values][79]:
-issue[custom_field_values][112]:
-issue[custom_field_values][113]:
-commit: 创建
+{
+  "issue": {
+    "project_id": 155,
+    "tracker_id": 5,
+    "subject": "【前端】issue-01-测试一下-rest-api",
+    "status_id": 2,
+    "was_default_status": 2,
+    "priority_id": 4,
+    "assigned_to_id": 858,
+    "fixed_version_id": 3277,
+    "start_date": "2021-07-21"
+  }
+}
 
-
-
-
+### versions(kellis-ng)
+GET https://redmine.saybot.net/projects/155/versions.json
+X-Redmine-API-Key: 7d0d1e1e5b59da84cd4974395e764b0a36894318
+Content-Type: application/json
