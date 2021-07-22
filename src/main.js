@@ -3,6 +3,8 @@ import './plugins/kellis-course-uuid';
 import './plugins/kellis-token';
 // import './plugins/kellis-url';
 import './plugins/redmine';
+import './plugins/redmine-issue-from';
+import './plugins/redmine-issue-to';
 import './plugins/release-notes';
 import './plugins/swagger-ui';
 
