@@ -1,6 +1,7 @@
 $(document).ready(function () {
   var host = location.host;
   if (host !== 'redmine.saybot.net') return;
+  // https://www.redmine.org/projects/redmine/wiki/Rest_api
   const target = $('#header h1');
   const headers = {
     'x-redmine-api-key': '7d0d1e1e5b59da84cd4974395e764b0a36894318',
