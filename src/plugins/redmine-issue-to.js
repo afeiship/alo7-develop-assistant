@@ -47,7 +47,7 @@ $(document).ready(function () {
       .then((r) => r.json())
       .then((res) => {
         const el = $('#version-selector');
-        const versions = res.versions;
+        const versions = res.versions.slice(-5);
         const optstr = versions.map((ver) => `<option value="${ver.id}">${ver.name}</option>`);
         el.html(optstr);
         el.val(versions[versions.length - 1].id);
