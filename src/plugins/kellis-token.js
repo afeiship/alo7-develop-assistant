@@ -14,7 +14,7 @@ $(document).ready(() => {
   var App = nx.declare({
     methods: {
       start() {
-        var target = $('.ant-layout-header .ant-dropdown-trigger');
+        var target = $('[class^="Dashboard__HeaderOption"]');
         target.after(attachElement);
         this.attachEvents();
       },
