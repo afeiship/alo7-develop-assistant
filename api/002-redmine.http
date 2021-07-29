@@ -23,6 +23,6 @@ Content-Type: application/json
 }
 
 ### versions(kellis-ng)
-GET https://redmine.saybot.net/projects/155/versions.json
+GET https://redmine.saybot.net/projects/155/versions.json?limit=3
 X-Redmine-API-Key: 7d0d1e1e5b59da84cd4974395e764b0a36894318
 Content-Type: application/json
