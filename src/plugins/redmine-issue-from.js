@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  console.log('ready');
   var host = location.host;
   var ALO7_HOST = 'confluence.alo7.cn';
   var author = $('.page-metadata .author').text();
