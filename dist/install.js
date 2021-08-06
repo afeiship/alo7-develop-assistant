@@ -47,6 +47,7 @@
 // ==/UserScript==
 
 // load gm-styles/jq-toast/jq-modal
+// https://jquerymodal.com/
 const GM_STYLES = GM_getResourceText('GM_STYLES');
 const JQ_TOAST = GM_getResourceText('JQ_TOAST');
 const JQ_MODAL = GM_getResourceText('JQ_MODAL');

@@ -8,6 +8,7 @@ var ISSUE_RE = /redmine.*\/issues\/(\d+)/;
 var ISSUE_BUG_ID = /(\w+)\s+#(\d+)/;
 var GIT_ACTION_MAP = {
   Bug: 'fix',
+  TechTask: 'refactor',
   Task: 'feat'
 };
 
@@ -55,6 +56,10 @@ gmsdk.addStyle(`
 
     .git_action[data-git-action="feat"]{
       background-color: #584492;
+    }
+
+    .git_action[data-git-action="refactor"]{
+      background-color: #f71692;
     }
 
     .git_action[data-git-action="fix"]{
