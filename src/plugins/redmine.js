@@ -86,8 +86,14 @@ $(document).ready(function () {
         <span class="git_msg">${git_msg}</span>
       </div>
       <div class="right">
-        <button id="gitmsg" class="gm-btn gm-btn-primary is-large">复制: git message </button>
-        <button id="gitflow" class="gm-btn gm-btn-positive is-large">复制: gitflow branch name</button>
+        <button id="gitmsg" class="gm-btn gm-btn-positive is-large">
+          <i class="icon icon-comment"></i>
+          复制: git message
+        </button>
+        <button id="gitflow" class="gm-btn gm-btn-negative is-large">
+          <i class="icon icon-projects"></i>
+          复制: gitflow branch name
+        </button>
       </div>
     </header>
   `);
