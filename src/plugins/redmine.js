@@ -14,6 +14,7 @@ var GIT_ACTION_MAP = {
 
 var GIT_BRANCH_MAP = {
   Bug: 'bug',
+  TechTask: 'refactor',
   Task: 'issue'
 };
 
