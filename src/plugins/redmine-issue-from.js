@@ -88,11 +88,15 @@ $(document).ready(function () {
 
   // 复制 release notes
   $('[data-action="release-notes"]').click(function (e) {
-    const cpdata = data.map((item, index) => `${index + 1}. ${item}`);
-    gmsdk.setClipboard(cpdata.join('\n'));
+    const items = $('[name="redmine-issue"]:checked');
+    const values = nx.slice(items).map((item) => {
+      const idx = $(item).data('index');
+      return `${idx + 1}. ${data[idx]}`;
+    });
+    gmsdk.setClipboard(values.join('\n'));
     $.toast({
       icon: 'info',
-      heading: '复制成功',
+      heading: '复制成功11',
       position: 'top-right',
       stack: false,
       hideAfter: 1000
