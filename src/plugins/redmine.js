@@ -92,7 +92,7 @@ $(document).ready(function () {
       </div>
       <div class="right">
         <button id="mark-as-resolved" class="gm-btn gm-btn-primary is-large">
-          <i class="icon icon-checked"></i>
+          <i class="icon icon-attachment"></i>
           切换状态Resolved/Assigned
         </button>
         <button id="gitmsg" class="gm-btn gm-btn-positive is-large">
