@@ -96,7 +96,7 @@ $(document).ready(function () {
     gmsdk.setClipboard(values.join('\n'));
     $.toast({
       icon: 'info',
-      heading: '复制成功11',
+      heading: '复制成功',
       position: 'top-right',
       stack: false,
       hideAfter: 1000

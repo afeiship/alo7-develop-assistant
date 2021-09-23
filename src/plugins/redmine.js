@@ -18,6 +18,11 @@ var GIT_BRANCH_MAP = {
   Task: 'issue'
 };
 
+var STATUS_MAP = {
+  3: 'Resolved',
+  2: 'Assigned'
+};
+
 var JQ_TOAST = GM_getResourceText('JQ_TOAST');
 GM_addStyle(JQ_TOAST);
 
@@ -86,6 +91,10 @@ $(document).ready(function () {
         <span class="git_msg">${git_msg}</span>
       </div>
       <div class="right">
+        <button id="mark-as-resolved" class="gm-btn gm-btn-primary is-large">
+          <i class="icon icon-checked"></i>
+          切换状态Resolved/Assigned
+        </button>
         <button id="gitmsg" class="gm-btn gm-btn-positive is-large">
           <i class="icon icon-comment"></i>
           复制: git message
@@ -97,6 +106,39 @@ $(document).ready(function () {
       </div>
     </header>
   `);
+
+  $('#mark-as-resolved').click(() => {
+    const currentStatus = $('#content .attributes .status .value').text();
+    const status_id = currentStatus === 'Assigned' ? 3 : 2;
+    const headers = {
+      'x-redmine-api-key': '7d0d1e1e5b59da84cd4974395e764b0a36894318',
+      'content-type': 'application/json'
+    };
+    $.toast({
+      icon: 'info',
+      heading: '开始切换，请稍等...',
+      position: 'top-right',
+      stack: false,
+      hideAfter: 1e4
+    });
+
+    fetch(`https://redmine.saybot.net/issues/${id}.json`, {
+      method: 'PUT',
+      headers,
+      body: JSON.stringify({
+        issue: { status_id }
+      })
+    }).then((res) => {
+      $.toast({
+        icon: 'success',
+        heading: `已经标记为${STATUS_MAP[status_id]}`,
+        position: 'top-right',
+        stack: false,
+        hideAfter: 1000
+      });
+      window.location.reload();
+    });
+  });
 
   $('#gitmsg').click(function () {
     var text = `${git_action}: ${git_msg}`;
