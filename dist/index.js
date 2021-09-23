@@ -2,8 +2,8 @@
  *  name: @jswork/alo7-develop-assistant
  *  description: Develop assistant for alo7.
  *  homepage: https://github.com/afeiship
- *  version: 1.0.70
- *  date: 2021-09-23T09:50:25.311Z
+ *  version: 1.0.71
+ *  date: 2021-09-23T09:55:10.392Z
  *  license: MIT
  */
 
