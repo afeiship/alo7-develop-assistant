@@ -3,7 +3,20 @@ $(document).ready(function () {
   const App = nx.declare({
     methods: {
       start: function () {
+        this.inertToolbar();
         this.findElements();
+        this.bindEvents();
+      },
+      inertToolbar: function () {
+        $('.el-dialog__header').append(
+          ` <button data-action="fill-elements" type="button" class="gm-btn gm-btn-positive is-large">一键填表</button> `
+        );
+      },
+      bindEvents: function () {
+        const self = this;
+        $('body').on('click', '[data-action="fill-elements"]', function () {
+          self.findElements();
+        });
       },
       findElements: function () {
         this.fillEditor('发布内容', 'xxx-01');
