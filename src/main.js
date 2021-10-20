@@ -1,4 +1,5 @@
 // import './plugins/ehr';
+import './plugins/huba';
 import './plugins/kellis-course-uuid';
 import './plugins/kellis-token';
 // import './plugins/kellis-url';
