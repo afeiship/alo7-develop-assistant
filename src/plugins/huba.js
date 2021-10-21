@@ -1,3 +1,10 @@
+/**
+ * @description
+ * 1. 添加一个按钮，进行填表操作
+ * 2. 第一次进入页面可以自动填表，第2次之后就不会自动填表了
+ * 3. 填表内容在 fill_content 里配置的
+ */
+
 $(document).ready(function () {
   var docUrl = document.URL;
   if (!docUrl.includes('huba.saybot.net')) return false;

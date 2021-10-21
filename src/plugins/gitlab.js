@@ -1,6 +1,12 @@
+/**
+ * @description
+ * 1. 添加一个按钮到 `kellis-ng` 项目的代码界面: `https://git.saybot.net/ACE/kellis/kellis-ng-front`
+ * 2. 点击可以到最新的线上运行代码的筛选界面,找到上次发布，可以点击 `deploy` 进行回滚操作
+ */
+
 $(document).ready(function () {
   var docUrl = document.URL;
-  if (!docUrl.includes('git.saybot.net')) return false;
+  if (!docUrl.includes('git.saybot.net/ACE/kellis/kellis-ng-front')) return false;
   // 1. App
   const App = nx.declare({
     methods: {
