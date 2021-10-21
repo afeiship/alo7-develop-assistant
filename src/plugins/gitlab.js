@@ -22,7 +22,7 @@ $(document).ready(function () {
             type="button"
             class="gm-btn gm-btn-primary">
             <svg class="s16" data-testid="rocket-icon"><use xlink:href="/assets/icons-81bca028cfa382a852fa2c8a6dfb4fb2b7467093d38f9fe9a07a519ca785299c.svg#rocket"></use></svg>
-            回滚请点我
+            版本回滚请点我
           </button> `
         );
       },
