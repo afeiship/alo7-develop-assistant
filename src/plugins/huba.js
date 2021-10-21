@@ -1,8 +1,7 @@
 /**
  * @description
  * 1. 添加一个按钮，进行填表操作
- * 2. 第一次进入页面可以自动填表，第2次之后就不会自动填表了
- * 3. 填表内容在 fill_content 里配置的
+ * 2. 填表内容在 fill_content 里配置的
  */
 
 $(document).ready(function () {
@@ -24,7 +23,6 @@ $(document).ready(function () {
     methods: {
       start: function () {
         this.inertToolbar();
-        this.findElements();
         this.bindEvents();
       },
       inertToolbar: function () {
@@ -40,9 +38,9 @@ $(document).ready(function () {
         );
       },
       bindEvents: function () {
-        $('body').on('click', '[data-action="fill-elements"]', this.findElements);
+        $('body').on('click', '[data-action="fill-elements"]', this.fillElements);
       },
-      findElements: function () {
+      fillElements: function () {
         nx.forIn(FILL_CONTENT, this.fillEditor);
       },
       fillEditor: function (inFind, inContent) {
