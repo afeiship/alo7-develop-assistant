@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  var docUrl = document.URL;
+  if (!docUrl.includes('git.saybot.net')) return false;
   // 1. App
   const App = nx.declare({
     methods: {
