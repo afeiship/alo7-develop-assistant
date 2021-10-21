@@ -38,10 +38,10 @@ $(document).ready(function () {
         );
       },
       bindEvents: function () {
-        $('body').on('click', '[data-action="fill-elements"]', this.fillElements);
+        $('body').on('click', '[data-action="fill-elements"]', this.fillElements.bind(this));
       },
       fillElements: function () {
-        nx.forIn(FILL_CONTENT, this.fillEditor);
+        nx.forIn(FILL_CONTENT, this.fillEditor, this);
       },
       fillEditor: function (inFind, inContent) {
         $(`.el-form-item__label:contains('${inFind}')`)
