@@ -5,6 +5,7 @@
 $(document).ready(function () {
   var docUrl = document.URL;
   if (!docUrl.includes('git.saybot.net/ACE/kellis/kellis-ng-front')) return false;
+  if (!docUrl.includes('scope=all&ref=master&username=aric.zheng&status=success')) return false;
   const getAPM = (inDate) => {
     const apm = inDate.toLocaleString([], { hour12: true }).slice(-2);
     const ampm = apm === 'AM' ? '上午' : '下午';
