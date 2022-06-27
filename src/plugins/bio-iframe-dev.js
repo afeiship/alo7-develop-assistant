@@ -43,7 +43,7 @@ $(document).ready(() => {
         });
 
         $('body').on('click', '[data-action="get-iframe"]', function (e) {
-          GM_setClipboard(self.ifm.src);
+          gmsdk.setClipboard(self.ifm.src);
           $.toast({
             icon: 'success',
             heading: '已为你复制到剪贴板',
