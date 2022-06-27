@@ -1,6 +1,6 @@
 {
   "name": "@jswork/alo7-develop-assistant",
-  "version": "1.0.74",
+  "version": "1.0.75",
   "description": "Develop assistant for alo7.",
   "homepage": "https://github.com/afeiship",
   "author": {
@@ -19,7 +19,7 @@
     "@jswork/next-date": "^1.0.0",
     "@jswork/next-nice-comments": "^1.0.1",
     "@jswork/next-rollup-banner": "^1.0.0",
-    "release-it": "^14.2.2",
+    "release-it": "^15.1.0",
     "rollup": "^2.20.0",
     "rollup-plugin-banner": "^0.2.1",
     "rollup-plugin-commonjs": "^10.1.0",

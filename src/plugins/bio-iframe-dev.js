@@ -38,8 +38,8 @@ $(document).ready(() => {
         $('[class^="Header___StyledHeader"]').prepend(`
           <form class="gm-row gm-row-center" data-role="form">
             <input type="text" id="dev-input" value="${devUrl}" class="gm-form-control" placeholder="请输入你的开发URL地址">
-            <button style="margin-left: 10px" class="ant-btn ant-btn-primary" data-action="inject">注入URL</button>
-            <button type="button" style="margin-left: 10px" class="ant-btn ant-btn-default" data-action="reset">重置</button>
+            <button style="margin-left: 10px" class="gm-btn gm-btn-primary is-large" data-action="inject">注入URL</button>
+            <button type="button" style="margin-left: 10px" class="gm-btn gm-btn-default is-large" data-action="reset">重置</button>
           </form>
         `);
       },
