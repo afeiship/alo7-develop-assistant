@@ -1,8 +1,8 @@
 /**
  * @description
- * kellis-ng 的一些辅助功能
- * 1. 复制 token
- * 2.
+ * 针对 bio-iframe 的子级项目，方便在本地调试项目
+ * 1. 从 __dev_url__ 中取得缓存的 URL 地址
+ * 2. 将 iframe 的 src 设置为第1步的 URL 结果
  */
 
 $(document).ready(() => {
