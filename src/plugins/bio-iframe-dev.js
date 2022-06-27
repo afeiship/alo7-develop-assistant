@@ -9,7 +9,7 @@ $(document).ready(() => {
   var docUrl = document.URL;
   if (!docUrl.includes('bio-platform-frontend.beta')) return false;
 
-  const DEV_URL = '__dev_url__';
+  const DEV_URL = 'gm.dev_url';
 
   var App = nx.declare({
     properties: {
@@ -18,8 +18,11 @@ $(document).ready(() => {
           localStorage.setItem(DEV_URL, val);
         },
         get: function () {
-          return localStorage.getItem(DEV_URL);
+          return localStorage.getItem(DEV_URL) || '';
         }
+      },
+      ifm: function () {
+        return document.querySelector('iframe');
       }
     },
     methods: {
@@ -30,9 +33,24 @@ $(document).ready(() => {
       },
       iniEvents() {
         var self = this;
-        $('body').on('submit', '[data-action="form"]', function (inEvent) {
+        $('body').on('submit', '[data-action="submit"]', function (inEvent) {
           inEvent.preventDefault();
           self.inject();
+        });
+
+        $('body').on('dblclick', '[data-action="input"]', function (e) {
+          this.select();
+        });
+
+        $('body').on('click', '[data-action="get-iframe"]', function (e) {
+          GM_setClipboard(self.ifm.src);
+          $.toast({
+            icon: 'success',
+            heading: '已为你复制到剪贴板',
+            position: 'top-right',
+            stack: false,
+            hideAfter: 1000
+          });
         });
 
         $('body').on('input', '[data-action="input"]', function (inEvent) {
@@ -40,22 +58,23 @@ $(document).ready(() => {
         });
 
         $('body').on('click', '[data-action="reset"]', function (inEvent) {
-          console.log('click reset.', inEvent);
           localStorage.removeItem(DEV_URL);
           window.location.reload();
         });
       },
       initElements() {
         $('[class^="Header___StyledHeader"]').prepend(`
-          <form class="gm-row gm-row-center" data-role="form">
-            <input type="text" data-action="input" value="${this.devUrl}" class="gm-form-control" placeholder="请输入你的开发URL地址">
+          <form class="gm-row gm-row-center" data-action="submit">
+            <span class="gm-tag gm-tag-positive" style="margin-right: 10px;">v __VERSION__</span>
+            <input type="search" data-action="input" value="${this.devUrl}" class="gm-form-control" placeholder="请输入你的开发URL地址">
             <button style="margin-left: 10px" class="gm-btn gm-btn-primary is-large" data-action="inject">注入URL</button>
             <button type="button" style="margin-left: 10px" class="gm-btn gm-btn-default is-large" data-action="reset">重置</button>
+            <button type="button" style="margin-left: 10px" class="gm-btn gm-btn-default is-large" data-action="get-iframe">获取iframe地址</button>
           </form>
         `);
       },
       syncIframe() {
-        if (this.devUrl) document.querySelector('iframe').src = this.devUrl;
+        if (this.devUrl) this.ifm.src = this.devUrl;
       },
       inject() {
         const el = document.querySelector('[data-action="input"]');
