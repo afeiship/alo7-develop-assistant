@@ -53,6 +53,17 @@ $(document).ready(() => {
           });
         });
 
+        $('body').on('click', '[data-action="token"]', function (e) {
+          gmsdk.setClipboard(localStorage.getItem('COMMON_SSO_TOKEN'));
+          $.toast({
+            icon: 'success',
+            heading: '已为你复制到剪贴板',
+            position: 'top-right',
+            stack: false,
+            hideAfter: 1000
+          });
+        });
+
         $('body').on('input', '[data-action="input"]', function (inEvent) {
           self.devUrl = inEvent.target.value;
         });
@@ -64,12 +75,13 @@ $(document).ready(() => {
       },
       initElements() {
         $('[class^="Header___StyledHeader"]').prepend(`
-          <form class="gm-row gm-row-center" data-action="submit">
-            <span class="gm-tag gm-tag-positive" style="margin-right: 10px;">v __VERSION__</span>
+          <form class="gm-row gm-row-center ml-10_ ml_" data-action="submit">
+            <span class="gm-tag gm-tag-positive">v __VERSION__</span>
             <input type="search" data-action="input" value="${this.devUrl}" class="gm-form-control" placeholder="请输入你的开发URL地址">
-            <button style="margin-left: 10px" class="gm-btn gm-btn-primary is-large" data-action="inject">注入URL</button>
-            <button type="button" style="margin-left: 10px" class="gm-btn gm-btn-default is-large" data-action="reset">重置</button>
-            <button type="button" style="margin-left: 10px" class="gm-btn gm-btn-default is-large" data-action="get-iframe">获取iframe地址</button>
+            <button class="gm-btn gm-btn-primary is-large" data-action="inject">注入URL</button>
+            <button type="button" class="gm-btn gm-btn-default is-large" data-action="reset">重置</button>
+            <button type="button" class="gm-btn gm-btn-default is-large" data-action="get-iframe">获取iframe地址</button>
+            <button type="button" class="gm-btn gm-btn-warning is-large" data-action="token">获取TOKEN</button>
           </form>
         `);
       },

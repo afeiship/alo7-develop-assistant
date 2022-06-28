@@ -18,7 +18,7 @@
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js
 // @resource JQ_TOAST https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css
-// @resource GM_STYLES https://unpkg.com/@jswork/gm-styles@1.0.6/dist/index.css
+// @resource GM_STYLES https://unpkg.com/@jswork/gm-styles@1.1.3
 // @resource JQ_MODAL https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css
 // @grant unsafeWindow
 // @grant GM_addStyle
