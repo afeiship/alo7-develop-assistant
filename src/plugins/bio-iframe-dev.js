@@ -22,7 +22,7 @@ $(document).ready(() => {
         }
       },
       ifm: function () {
-        return document.querySelector('iframe');
+        return document.querySelector('iframe.bio-iframe');
       }
     },
     methods: {
