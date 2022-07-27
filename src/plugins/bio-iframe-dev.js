@@ -7,7 +7,7 @@
 
 $(document).ready(() => {
   var docUrl = document.URL;
-  if (!docUrl.includes('bio-platform-frontend.beta')) return false;
+  if (!docUrl.includes('cloud.beta.aigene.org.cn')) return false;
 
   const DEV_URL = 'gm.dev_url';
 

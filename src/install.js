@@ -6,6 +6,7 @@
 // @author       aric.zheng
 // @include    *://*.saybot.net:*/*
 // @include    *://*.saybot.net/*
+// @include    *://*.aigene.org.cn/*
 // @include    *://*.saybot.com/*
 // @include    *://*.shuobaotang.com/*
 // @include    *://*.alo7.com/*
