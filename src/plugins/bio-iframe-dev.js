@@ -74,8 +74,8 @@ $(document).ready(() => {
         });
       },
       initElements() {
-        $('[class^="Header___StyledHeader"]').prepend(`
-          <form class="gm-row gm-row-center ml-10_ ml_" data-action="submit">
+        $('[class^="MainFrame___Styled"]').eq(1).prepend(`
+          <form class="gm-row gm-row-center m-10 ml-10_ ml_" data-action="submit" style="width: auto;">
             <span class="gm-tag gm-tag-positive">v __VERSION__</span>
             <input type="search" data-action="input" value="${this.devUrl}" class="gm-form-control" placeholder="请输入你的开发URL地址">
             <button class="gm-btn gm-btn-primary is-large" data-action="inject">注入URL</button>
