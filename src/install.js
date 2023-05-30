@@ -12,6 +12,7 @@
 // @match    *://*.alo7.com/*
 // @match    *://*.alo7.cn/*
 // @updateURL https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/dist/install.js
+// @downloadURL https://raw.githubusercontent.com/afeiship/alo7-develop-assistant/master/dist/install.js
 // @supportURL https://github.com/afeiship/alo7-develop-assistant/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @require  https://unpkg.com/@jswork/gm-sdk@1.0.26
