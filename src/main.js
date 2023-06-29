@@ -3,7 +3,7 @@
 // import './plugins/gitlab';
 // import './plugins/huba';
 // import './plugins/kellis-token';
-// import './plugins/redmine';
+import './plugins/redmine';
 // import './plugins/redmine-issue-from';
 // import './plugins/redmine-issue-to';
 import './plugins/swagger-ui';
