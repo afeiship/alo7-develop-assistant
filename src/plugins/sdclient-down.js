@@ -13,16 +13,36 @@ $(document).ready(function () {
   const App = nx.declare({
     methods: {
       start: function () {
+        this.maxRows = parseInt(localStorage.getItem('gm_max_rows')) || 5;
+        this.indexedTable();
+        this.styledTable();
         this.fulltitle();
+        this.checkStore();
+      },
+      indexedTable() {
+        $('#list tr').each((_, row) => {
+          $(row).prepend(`<td>-</td>`);
+        });
+      },
+      styledTable() {
+        $('#list').css({ 'font-size': '14px' });
+        $('col').eq(0).attr('width', '2%');
+        $('col').eq(1).attr('width', '78%');
+        $('col').eq(2).attr('width', '10%');
+        $('col').eq(3).attr('width', '10%');
       },
       fulltitle() {
-        const rows = $('#list tr').slice(0, 7);
-        if (rows.length < 7) return false;
+        const maxRows = this.maxRows + 2;
+        const rows = $('#list tr').slice(0, maxRows);
+        if (rows.length < maxRows) return false;
         rows.each((index, row) => {
           const anchors = $(row).find('td a');
-          // console.log('anchors: ', anchors);
+          const orderedIndex = (index - 2) % 5;
+          const firstCol = $(row).find('td').eq(0);
+          firstCol.text(orderedIndex + 1);
           if (index > 1) {
-            $(row).css('background-color', '#5bd46d');
+            const color = orderedIndex === 0 ? '#6eb4f7' : '#5bd46d';
+            $(row).css('background-color', color);
             const target = anchors.get(0);
             const filename = $(target).attr('href');
             const isMd5File = filename.includes('.md5');
@@ -41,11 +61,15 @@ $(document).ready(function () {
                   hideAfter: 1000
                 });
               });
-            } else {
-              // console.log('filename: ', $target[0].href);
             }
           }
         });
+      },
+      checkStore() {
+        const oldMaxRows = localStorage.getItem('gm_max_rows');
+        if (!oldMaxRows) {
+          localStorage.setItem('gm_max_rows', this.maxRows);
+        }
       }
     }
   });
