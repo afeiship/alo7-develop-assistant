@@ -7,6 +7,7 @@ import './plugins/redmine';
 // import './plugins/redmine-issue-from';
 // import './plugins/redmine-issue-to';
 import './plugins/swagger-ui';
+import './plugins/sdclient-down';
 // import './plugins/bio-iframe-dev'
 
 // gmsdk.slog({ title: '当前版本:', content: '__VERSION__' });
