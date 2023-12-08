@@ -1,7 +1,8 @@
 /**
  * @description
- * 1. 添加一个按钮，进行填表操作
- * 2. 填表内容在 fill_content 里配置的
+ * 1. 到这个地址 http://download.sdclient.saybot.net/sdclient-output
+ * 2. 将最新的5个下载地址，标记为绿色
+ * 3. 将 .md5 后缀的文件，copy 出 md5 值
  */
 
 $(document).ready(function () {
@@ -15,7 +16,8 @@ $(document).ready(function () {
         this.fulltitle();
       },
       fulltitle() {
-        const rows = $('#list tr').slice(0, 8);
+        const rows = $('#list tr').slice(0, 7);
+        if (rows.length < 7) return false;
         rows.each((index, row) => {
           const anchors = $(row).find('td a');
           // console.log('anchors: ', anchors);
@@ -24,10 +26,11 @@ $(document).ready(function () {
             const target = anchors.get(0);
             const filename = $(target).attr('href');
             const isMd5File = filename.includes('.md5');
-            $(target).text(filename);
+            const $target = $(target);
+            $target.text(filename);
             if (isMd5File) {
               const md5Code = filename.split('.').slice(-2, -1)[0];
-              $(target).click((e) => {
+              $target.click((e) => {
                 e.preventDefault();
                 gmsdk.setClipboard(md5Code);
                 $.toast({
@@ -38,6 +41,8 @@ $(document).ready(function () {
                   hideAfter: 1000
                 });
               });
+            } else {
+              // console.log('filename: ', $target[0].href);
             }
           }
         });
