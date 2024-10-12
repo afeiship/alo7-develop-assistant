@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         alo7-develop-assistant
 // @namespace    https://github.com/afeiship/alo7-develop-assistant
-// @version      1.0.91
+// @version      1.0.92
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
 // @match    *://*.saybot.net:*/*
-// @match    *://*.apply7.ai/*
+// @match    *://redmine.apply7.ai/*
 // @match    *://*.saybot.net/*
 // @match    *://*.aigene.org.cn/*
 // @match    *://*.saybot.com/*
@@ -17,7 +17,7 @@
 // @supportURL https://github.com/afeiship/alo7-develop-assistant/issues/new?assignees=adlered&labels=help+wanted&template=ISSUE_TEMPLATE.md&title=
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js
 // @require  https://unpkg.com/@jswork/gm-sdk@1.0.26
-// @require  https://cdn.jsdelivr.net/npm/@jswork/alo7-develop-assistant@1.0.91
+// @require  https://cdn.jsdelivr.net/npm/@jswork/alo7-develop-assistant@1.0.92
 // @require  https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.min.js
 // @resource JQ_TOAST https://cdnjs.cloudflare.com/ajax/libs/jquery-toast-plugin/1.3.2/jquery.toast.css
 // @resource GM_STYLES https://unpkg.com/@jswork/gm-styles@1.1.3
