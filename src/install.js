@@ -5,6 +5,7 @@
 // @description  Develop assistant for alo7.
 // @author       aric.zheng
 // @match    *://*.saybot.net:*/*
+// @match    *://*.apply7.ai/*
 // @match    *://*.saybot.net/*
 // @match    *://*.aigene.org.cn/*
 // @match    *://*.saybot.com/*
