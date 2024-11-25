@@ -161,9 +161,8 @@ $(document).ready(function () {
 
   $('#gitflow').click(function () {
     var re = /[._()-]/g;
-    var version = nx.kebabCase(fixed_version.replace(re, ''));
-    var versionPrefix = version ? `${version}/` : '';
-    var text = `${versionPrefix}redmine-${GIT_BRANCH_MAP[issue_bug] || 'issue'}-${id}`;
+    // var version = nx.kebabCase(fixed_version.replace(re, ''));
+    var text = `redmine-${GIT_BRANCH_MAP[issue_bug] || 'issue'}-${id}`;
     gmsdk.setClipboard(text);
     $.toast({
       icon: 'info',
